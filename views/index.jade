@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  header
+    h1 !{title}
+  each entry in entries
+    article
+      h2 !{entry.title}
+      time(datetime='#{entry.date}')= entry.displayDate
+      !{entry.content}

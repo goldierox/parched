@@ -1,0 +1,18 @@
+{
+  "name": "pewter",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app"
+  },
+  "dependencies": {
+    "express": "*",
+    "jade": "*",
+    "less-middleware": "*",
+    "walk": "*",
+    "markdown": "*",
+    "node-fs": "*",
+    "libxmljs": "*",
+    "moment": "*"
+  }
+}
