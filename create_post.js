@@ -27,30 +27,34 @@ fs.exists(blogPath, function(exists) {
 		if (filename.charAt(filename.length - 1) === '_') {
 			filename = filename.substring(0, filename.length - 1);
 		}
-		filename += ".markdown";
 
 		var fullpath = path.join(blogPath, filename);
-  		console.log("Creating a file at", fullpath);
 
-  		var contents = createFileString(title);
+  		console.log("Creating a file at ", fullpath + ".markdown");
+  		console.log("...Meta file at ", fullpath + ".json");
 
-  		fs.writeFile(fullpath, contents, function(err) {
+  		var contents = createMetaFile(title);
+
+  		fs.writeFile(fullpath + ".json", contents, function(err) {
   			if (err) throw err;
-  			console.log("File saved successfully");
+  			console.log("Meta file saved successfully");
   		});
+
+  		fs.writeFile(fullpath + ".markdown", "", function(err) {
+  			if (err) throw err;
+  			console.log("Markdown file saved successfully");
+  		})
+
   		rl.close();
 	});
 });
 
-var createFileString = function(title) {
-	var libxmljs = require('libxmljs');
-	var doc = new libxmljs.Document();
+var createMetaFile = function(title) {
 	var date = new Date();
-	doc.node("root")
-			.node("title", title).parent()
-			.node("date", date.toString()).parent()
-			.node("content").parent()
-		.parent()
+	var post = {
+		title: title,
+		date: date.toString()
+	};
 
-	return doc.toString();
+	return JSON.stringify(post, null, 4);
 }

@@ -1,8 +1,150 @@
-body {
-  padding: 50px;
-  font: 14px "Open Sans", sans-serif;
+/*!
+ * Bootstrap v2.0.4
+ *
+ * Copyright 2012 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world @twitter by @mdo and @fat.
+ */
+
+// CSS Reset
+@import "reset.less";
+
+// Core variables and mixins
+@import "variables.less"; // Modify this for custom colors, font-sizes, etc
+@import "mixins.less";
+
+@import "type.less";
+
+// Utility classes
+@import "utilities.less"; // Has to be last to override when necessary
+
+@sansFontFamily: "Open Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@titleFont: 'Josefin Sans', sans-serif;
+
+html {
+	margin: 0;
+	padding: 0;
+	-webkit-text-size-adjust: none;
 }
 
-a {
-  color: #00B7FF;
+body {
+	font-family: @sansFontFamily;
+	background-image: url(../images/bg.jpeg);
+	color: @grayDark;
+	margin: 0;
+}
+
+@headerHeight: 72px;
+header {
+	font-family: @titleFont;
+	height: @headerHeight;
+	margin-bottom: 20px;
+	border-bottom: 2px solid rgba(78, 68, 60, 0.1)
+}
+
+.logo {
+	float: left;
+	font-size: 34px;
+	line-height: @headerHeight;
+	font-weight: normal;
+	vertical-align: baseline;
+}
+
+ul, ol {
+	padding: 0;
+	margin: 0 0 9px 25px;
+	list-style: none;
+	font-weight: bold;
+}
+
+nav[role="navigation"] ul {
+	float: right;
+}
+
+nav[role="navigation"] ul li {
+	float: left;
+}
+
+nav[role="navigation"] li + li {
+	margin-left: 65px;
+}
+nav[role="navigation"] ul li.last {
+	margin-right: 0;
+}
+nav[role="navigation"] ul li a {
+	display: block;
+	float: left;
+	width: 100%;
+	padding: 17px 0 21px 4px;
+
+	font-size: 1em;
+	line-height: 1.3em;
+	text-decoration: none;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+
+	border-top: 5px solid transparent;
+	-webkit-transition: border .2s ease;
+	-moz-transition: border .2s ease;
+	-o-transition: border .2s ease;
+	-ms-transition: border .2s ease;
+	transition: border .2s ease;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	-o-border-radius: 0;
+	-ms-border-radius: 0;
+	border-radius: 0;
+	margin: 0;
+}
+
+nav[role="navigation"] ul li a:hover,
+nav[role="navigation"] ul li a:active {
+	color: #555;
+	border-top: 5px solid #228B22;
+	background: none;
+	-webkit-transition: border .2s ease;
+	-moz-transition: border .2s ease;
+	-o-transition: border .2s ease;
+	-ms-transition: border .2s ease;
+	transition: border .2s ease;
+}
+
+#main {
+	font-size: 1em;
+	line-height: 1.6;
+}
+
+.container {
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 0 20px;
+}
+
+.content p {
+	font-size: .95em;
+	line-height: 1.5em;
+	margin: 0 0 1em;
+}
+.content li {
+	font-size: .95em;
+	margin-left: 1.5em;
+	line-height: 1.4em;
+}
+
+article {
+	border-bottom: 1px solid rgba(78, 68, 60, 0.1)
+}
+
+/* Clear */
+header[role="banner"]:after,
+nav[role="navigation"]:after,
+#main:after,
+article:after {
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
 }

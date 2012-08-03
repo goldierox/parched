@@ -3,6 +3,23 @@ html
   head
     title= title
     link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans')
-    link(rel='stylesheet', href='/stylesheets/bootstrap.css')
+    link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Josefin+Sans:400,700')
+    link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    div.container
+      header
+        div.logo
+          !{title}
+        nav(role='navigation')
+          ul.group
+            li
+              a
+                strong Home
+            li
+              a
+                strong About
+            li
+              a
+                strong Resume
+      div#main
+        block content
