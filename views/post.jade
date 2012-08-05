@@ -1,0 +1,5 @@
+mixin post(entry, showLink)
+  article.content
+    time(datetime='#{entry.date}')= entry.displayDate
+    h2.title !{entry.title}
+    !{entry.content}
