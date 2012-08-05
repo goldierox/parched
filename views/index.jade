@@ -1,8 +1,6 @@
 extends layout
+include post
 
-block content
+block allPosts
   each entry in entries
-    article.content
-      h2 !{entry.title}
-      time(datetime='#{entry.date}')= entry.displayDate
-      !{entry.content}
+    mixin post(entry, true)
